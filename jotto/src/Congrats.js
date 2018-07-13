@@ -7,18 +7,24 @@ import PropTypes from 'prop-types';
  * @returns { JSX.Element }  - Rendered Component or null if success is false
 */
 
-export default (props) => {
-  if ( props.success ) {
-      return (
-        <div data-test='component-congrats' >
-          <span data-test='congrats-message' >
-            congratulations you guessed correctly!
+const Congrats = (props) => {
+  if (props.success) {
+    return (
+      <div data-test='component-congrats' >
+        <span data-test='congrats-message' >
+          congratulations you guessed correctly!
           </span>
-        </div>
-      );
-      } else {
-        return (
-        <div data-test='component-congrats' />
-        );
-      }
+      </div>
+    );
+  } else {
+    return (
+      <div data-test='component-congrats' />
+    );
+  }
 }
+
+Congrats.propTypes = {
+  success: PropTypes.bool.isRequired,
+};
+
+export default Congrats;
